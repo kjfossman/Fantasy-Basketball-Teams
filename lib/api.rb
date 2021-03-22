@@ -17,15 +17,27 @@ class API
             total << more_players
             c += 1
         end
+        
         binding.pry
     end
+#     counter = 0.0
+#     percentage = 0
+#  => 0.0 
+
+#  array.each do |num|
+     
+#      system('clear')
+#      counter += 1
+#      percentage = counter/array.length*100.0
+#      puts percentage
+# end
 
 
 
-    # def create_trivia_objects(trivia_array)
-    #     # binding.pry
-    #     # trivia_array.each do |trivia_hash| 
-    #     #     Clue.new(trivia_hash) unless trivia_hash['question'] == ""   
-    #     # end
-    # end
-end
+#     # def create_trivia_objects(trivia_array)
+#     #     # binding.pry
+#     #     # trivia_array.each do |trivia_hash| 
+#     #     #     Clue.new(trivia_hash) unless trivia_hash['question'] == ""   
+#     #     # end
+#     # end
+# end

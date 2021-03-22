@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative '../config/environment.rb'
+# require_relative '../config/environment.rb'
 
-API.new.get_data
-puts "hello"
+# API.new.get_data
+# puts "hello"
