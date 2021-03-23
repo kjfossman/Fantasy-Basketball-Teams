@@ -2,5 +2,4 @@
 
 require_relative '../config/environment.rb'
 
-API.new.get_data
-puts "hello"
+API.new
