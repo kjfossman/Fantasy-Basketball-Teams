@@ -11,15 +11,16 @@ class API
         players = HTTParty.get(@url)
         total << players
         c = 2
-        while c <= players["meta"]["total_pages"] do
-            local = "https://www.balldontlie.io/api/v1/players?page=#{c}"
-            more_players = HTTParty.get(local)
-            total << more_players
-            c += 1
-        end
+        # while c <= players["meta"]["total_pages"] do
+        #     local = "https://www.balldontlie.io/api/v1/players?page=#{c}"
+        #     more_players = HTTParty.get(local)
+        #     total << more_players
+        #     c += 1
+        # end
         
         binding.pry
     end
+end
 #     counter = 0.0
 #     percentage = 0
 #  => 0.0 

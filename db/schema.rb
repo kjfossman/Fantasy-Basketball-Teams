@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_205923) do
+ActiveRecord::Schema.define(version: 2021_03_23_182745) do
+
+  create_table "Nba_teams", force: :cascade do |t|
+    t.string "abrreviation"
+    t.string "city"
+    t.string "conference"
+    t.string "division"
+    t.string "full_name"
+    t.string "name"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "position"
+    t.integer "Nba_team_id"
+  end
+
+  create_table "user_team_players", force: :cascade do |t|
+    t.integer "user_team_id"
+    t.integer "player_id"
+  end
+
+  create_table "user_teams", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"

@@ -1,4 +1,7 @@
+
 require "bundler/setup"
+
+require_relative '../lib/api'
 Bundler.require
 
 ActiveRecord::Base.establish_connection({
@@ -14,12 +17,11 @@ ActiveRecord::Base.logger = Logger.new(STDOUT)
 
 
 
-# require 'pry'
-# require 'httparty'
 
 
-# # require_relative '../lib/cli'
-# require_relative '../lib/api'
+
+# # # require_relative '../lib/cli'
+
 # require_relative '../lib/clue'
 # require_relative '../lib/category'
 # require_relative '../lib/player'
