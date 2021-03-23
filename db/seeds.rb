@@ -3,8 +3,8 @@
     # "https://www.balldontlie.io/api/v1/players?page=#{var}&per_page=100"
     total = []
     players = HTTParty.get(@url)
-    total << players
-    c = 2
+    # total << players
+    c = 128
     while c <= players["meta"]["total_pages"]  do
         local = "https://www.balldontlie.io/api/v1/players?page=#{c}"
         more_players = HTTParty.get(local)
