@@ -1,3 +1,13 @@
-
+<% if logged_in? %>
+<br><br>
+<form action="/logout" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Logout">
+</form>
+<br>
+<form action="/users/<%= session["user_id"] %>" method="get">
+    <input type="submit" value="My Teams">
+</form>
+<% end %>
 
 <%= yield %>

@@ -1,0 +1,12 @@
+<h1>Players List, Search by Last Name </h1>
+
+<form autocomplete="off" action="/players/search" method="get">
+    <input type="text" placeholder="Last_name.." name="last_name">
+    <input type="submit" value="search">
+</form>
+
+<% @players.each do |x| %>
+    <%= "#{x.last_name}, #{x.first_name}" %> <br>
+    <% end %>
+
+ 

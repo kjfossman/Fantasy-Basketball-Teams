@@ -1,0 +1,13 @@
+<h1>Create New Team</h1>
+<form action="/user-teams" method="post">
+    <label>Team Name:</label>
+    <input type="text" name="name" placeholder="Team Name"><br><br><br>
+
+    <input type="submit" value="Create New Team">
+
+<h2>Add Players</h2>
+    <% @players.each do |player| %>
+        <input type="checkbox" name="user_team[player_ids][]" value="<%= player.id %>"><%= "#{player.last_name}, #{player.first_name}"%><br>
+    <% end %>
+
+</form>
