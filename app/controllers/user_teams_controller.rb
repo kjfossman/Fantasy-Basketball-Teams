@@ -29,14 +29,34 @@ class UserTeamsController < ApplicationController
         @player_ids = params["user_team"]["player_ids"]
         @user_team = current_user.user_teams.create(name: params["name"])
         @player_ids.each do |x|
-            player = Player.find_by_id(x)
-            @user_team.players << player
+            UserTeamPlayer.create(player_id: x, user_team_id: @user_team.id)
+            # player = Player.find_by_id(x)
+            # @user_team.players << player
         end
         redirect '/user-teams'
     end
 
     get '/user_teams/:id/edit' do 
-        binding.pry 
+        redirect_if_not_logged_in
+        @user_team = UserTeam.find_by_id(params[:id])
+        @players = Player.all 
+        erb :"user_teams/edit"
+    end
+
+    patch '/user_teams/:id' do 
+       
+        @user_team = UserTeam.find_by_id(params[:id])
+        @user_team.update(name: params["name"])
+        @user_team.players.delete_all
+        @player_ids = params["user_team"]["ids"]
+        @player_ids.each do |x|
+            UserTeamPlayer.create(player_id: x, user_team_id: @user_team.id)
+            # player = Player.find_by_id(x)
+            # @user_team.players << player
+        end
+        @user_team.save
+        redirect "/user-teams"
+        # redirect "/user_teams/#{@user_team.id}"
     end
 
 

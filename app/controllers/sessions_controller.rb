@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
     get '/login' do 
-        binding.pry
+      
         redirect_if_logged_in
         erb :'sessions/new'
     end
