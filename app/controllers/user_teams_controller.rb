@@ -46,10 +46,11 @@ class UserTeamsController < ApplicationController
     end
 
     patch '/user-teams/:id' do 
+        binding.pry
         @user_team = UserTeam.find_by_id(params[:id])
         @user_team.update(name: params["name"])
         @user_team.players.delete_all
-        @player_ids = params["user_team"]["ids"]
+        @player_ids = params["user_team"]["player_ids"]
         @player_ids.each do |x|
             UserTeamPlayer.create(player_id: x, user_team_id: @user_team.id)
             # player = Player.find_by_id(x)
@@ -59,6 +60,17 @@ class UserTeamsController < ApplicationController
         redirect "/user-teams"
         # redirect "/user_teams/#{@user_team.id}"
     end
+
+    delete '/user-teams/:id' do 
+        binding.pry
+        redirect_if_not_logged_in
+        @user_team = UserTeam.find_by_id(params["id"])
+        @user_team.delete
+        @sub = session["user_id"]
+        redirect '/user-teams'
+        # redirect "/users/<%= session["user_id"] %>"
+    end
+
 
 
 
