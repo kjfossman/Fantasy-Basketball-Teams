@@ -1,22 +1,49 @@
 <h2>Edit Team: <%= @user_team.name %> </h2>
 
-<form action="/user_teams/<%= @user_team.id %>" method="post">
+<form action="/user-teams/<%= @user_team.id %>" method="post">
 <input id="hidden" type="hidden" name="_method" value="patch">
     <label>Team Name:</label>
     <input type="text" name="name" value="<%= @user_team.name %>"><br><br><br>
 
 <h2>Current <%= @user_team.name %> Players</h2>
-    <% @user_team.players.each do |player| %>
-        <input type="checkbox" name="user_team[ids][]" value="<%= player.id %>"<%='checked' if @user_team.players.include?(player) %>><%= "#{player.last_name}, #{player.first_name}"%><br>
+
+   
+    <select  name = "user_team[player_ids][]">
+    <% @players.each do |player| %>
+    <option value="<%= player.id %>" name="user_team[player_ids][]"> <%= "#{player.last_name}, #{player.first_name} - #{player.nba_team.full_name}"%></option>
     <% end %>
+    <option value="<% @user_team.players[0].id ? @user_team.players[0].id : "Choose Player"%>" selected><%= "#{@user_team.players[0].last_name}, #{@user_team.players[0].first_name} - #{@user_team.players[0].nba_team.full_name}" %> </option>
+    </select><br><br>
+    
+    <select name = "user_team[player_ids][]">
+    <% @players.each do |player| %>
+    <option value="<%= player.id %>" name="user_team[player_ids][]"> <%= "#{player.last_name}, #{player.first_name} - #{player.nba_team.full_name}"%></option>
+    <% end %>
+    <option value="<% @user_team.players[1].id ? @user_team.players[1].id : "Choose Player" %>" selected><%= "#{@user_team.players[1].last_name}, #{@user_team.players[1].first_name} - #{@user_team.players[1].nba_team.full_name}" %> </option>
+    </select><br><br>
+    
+    <select name = "user_team[player_ids][]">
+    <% @players.each do |player| %>
+    <option value="<%= player.id %>" name="user_team[player_ids][]"> <%= "#{player.last_name}, #{player.first_name} - #{player.nba_team.full_name}"%></option>
+    <% end %>
+    <option value="<% @user_team.players[2].id ? @user_team.players[2].id : "Choose Player" %>" selected><%= "#{@user_team.players[2].last_name}, #{@user_team.players[2].first_name} - #{@user_team.players[2].nba_team.full_name}" %> </option>    
+    </select><br><br>
+    
+    <select name = "user_team[player_ids][]">
+    <% @players.each do |player| %>
+    <option value="<%= player.id %>" name="user_team[player_ids][]"> <%= "#{player.last_name}, #{player.first_name} - #{player.nba_team.full_name}"%></option>
+    <% end %>
+    <option value="<% @user_team.players[3] ? @user_team.players[3].id : "Choose Player" %>" selected><%= "#{@user_team.players[3].last_name}, #{@user_team.players[3].first_name} - #{@user_team.players[3].nba_team.full_name}" %> </option>
+    </select><br><br>
+    
+    <select name = "user_team[player_ids][]">
+    <% @players.each do |player| %>
+    <option value="<%= player.id %>" name="user_team[player_ids][]"> <%= "#{player.last_name}, #{player.first_name} - #{player.nba_team.full_name}"%></option>
+    <% end %>
+    <option value="<% @user_team.players[4] ? @user_team.players[4].id : "Choose Player" %>" selected><%= "#{@user_team.players[4].last_name}, #{@user_team.players[4].first_name} - #{@user_team.players[4].nba_team.full_name}" %> </option>    
+    </select><br><br><br>
 
     <input type="submit" value="Update Team">
-
-<h2>Add Players<br>
-<% @players.each do |x| %>
-    <input type="checkbox" name="user_team[ids][]" value="<%= x.id %>"><%= "#{x.last_name}, #{x.first_name}"%> <br>
-    <% end %>
-</h2>
 
 </form>
 

@@ -2,7 +2,7 @@
     <h1><%= "User: #{@user.username}" %></h1>
     <% @user.user_teams.each do |user_team|%>
     <h2><u><%= user_team.name %></u>
-    <form action="/user_teams/<%= user_team.id %>/edit" method="get">
+    <form action="/user-teams/<%= user_team.id %>/edit" method="get">
     <input type="submit" value="Edit Team">
     </form>
     </h2>

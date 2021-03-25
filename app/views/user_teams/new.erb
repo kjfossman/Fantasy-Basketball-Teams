@@ -1,13 +1,44 @@
 <h1>Create New Team</h1>
 <form action="/user-teams" method="post">
-    <label>Team Name:</label>
-    <input type="text" name="name" placeholder="Team Name"><br><br><br>
+<label>Team Name:</label>
+<input type="text" name="name" placeholder="Team Name"><br><br><br>
 
+<h2>Add Players, Browse By Last Name</h2><br>
+
+<select  name = "user_team[player_ids][]">
+<% @players.each do |player| %>
+<option value="<%= player.id %>" name="user_team[player_ids][]"> <%= "#{player.last_name}, #{player.first_name} - #{player.nba_team.full_name}"%></option>
+<% end %>
+<option value="" selected>Select Your First Player</option>
+</select><br><br>
+
+<select name = "user_team[player_ids][]">
+<% @players.each do |player| %>
+<option value="<%= player.id %>" name="user_team[player_ids][]"> <%= "#{player.last_name}, #{player.first_name} - #{player.nba_team.full_name}"%></option>
+<% end %>
+<option value="" selected>Select Your Second Player</option>
+</select><br><br>
+
+<select name = "user_team[player_ids][]">
+<% @players.each do |player| %>
+<option value="<%= player.id %>" name="user_team[player_ids][]"> <%= "#{player.last_name}, #{player.first_name} - #{player.nba_team.full_name}"%></option>
+<% end %>
+<option value="" selected>Select Your Third Player</option>
+</select><br><br>
+
+<select name = "user_team[player_ids][]">
+<% @players.each do |player| %>
+<option value="<%= player.id %>" name="user_team[player_ids][]"> <%= "#{player.last_name}, #{player.first_name} - #{player.nba_team.full_name}"%></option>
+<% end %>
+<option value="" selected>Select Your Fourth Player</option>
+</select><br><br>
+
+<select name = "user_team[player_ids][]">
+<% @players.each do |player| %>
+<option value="<%= player.id %>" name="user_team[player_ids][]"> <%= "#{player.last_name}, #{player.first_name} - #{player.nba_team.full_name}"%></option>
+<% end %>
+<option value="" selected>Select Your Fifth Player</option>
+</select><br><br><br>
+   
     <input type="submit" value="Create New Team">
-
-<h2>Add Players</h2>
-    <% @players.each do |player| %>
-        <input type="checkbox" name="user_team[player_ids][]" value="<%= player.id %>"><%= "#{player.last_name}, #{player.first_name}"%><br>
-    <% end %>
-
 </form>
