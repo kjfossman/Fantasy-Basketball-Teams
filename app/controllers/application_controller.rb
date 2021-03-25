@@ -1,8 +1,9 @@
+require 'sinatra'
+require 'sinatra/flash'
 class ApplicationController < Sinatra::Base
   configure do 
     register Sinatra::ActiveRecordExtension
-    require 'sinatra'
-    require 'sinatra/flash'
+    register Sinatra::Flash
     enable :sessions
     set :session_secret, "my_application_secret"
     set :views, "app/views"

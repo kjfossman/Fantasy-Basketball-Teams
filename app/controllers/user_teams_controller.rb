@@ -78,7 +78,6 @@ class UserTeamsController < ApplicationController
 
     private
     def redirect_if_not_authorized_by_user
-        binding.pry
         @user = User.find_by_id(params["id"])
         if @user.id != session["user_id"]
             redirect "/user-teams"
@@ -86,7 +85,6 @@ class UserTeamsController < ApplicationController
     end
 
     def redirect_if_not_authorized_by_user_team
-        binding.pry
         @user_team = UserTeam.find_by_id(params["id"])
         if @user_team.user_id != session["user_id"]
             redirect "/user-teams"
