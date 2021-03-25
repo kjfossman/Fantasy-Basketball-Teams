@@ -1,0 +1,12 @@
+<h1><%="#{@player.first_name} #{@player.last_name}"%></h1>
+
+<form action="/players/<%= @player.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="text" name="stats_link" placeholder="Link to Stats"><br>
+
+    <input type="submit" value="Update Link">
+</form>
+
+<% if @player.stats_link %>
+<h4><%="Current stats link for #{@player.first_name} #{@player.last_name} - #{@player.stats_link}"%></h4>
+<% end %>

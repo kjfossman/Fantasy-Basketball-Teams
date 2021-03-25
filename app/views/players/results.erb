@@ -1,4 +1,5 @@
 
+    <form action="/players/<%=@player.id%>/edit" method="get">
     <h1><%= "#{@player.first_name} #{@player.last_name}" %></h1> 
     <h2><%= "#{@nba_team.full_name}" %> </h2>
     <h3><ul>
@@ -6,5 +7,6 @@
             <li><%= "#{@nba_team.conference}ern Conference" %></li> 
             <li><%= "#{@nba_team.division} Division" %></li>      
     </ul></h3>
-   
+    <input type="submit" value="Add Link to Stats">
+    </form>
 

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
         if user && user.authenticate(params["user"]["password"])
             session["user_id"] = user.id
-            flash[:success] = "Login Success"
+            flash[:success] = "Welcome Back!"
             redirect "/user-teams"
         elsif user 
             flash[:failure] = "Incorrect Password"
