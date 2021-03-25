@@ -1,12 +1,16 @@
 <h1>Players List, Search by Last Name </h1>
 
 <form autocomplete="off" action="/players/search" method="get">
-    <input type="text" placeholder="Last_name.." name="last_name">
+<select  name = "player_id">
+<% @players.each do |player| %>
+<option value="<%= player.id %>" name="player_id"> <%= "#{player.last_name}, #{player.first_name} - #{player.nba_team.full_name}"%></option>
+<% end %>
+<option value="<%= "Choose Player"%>" name="player_id" selected>Choose Player </option>
+</select><br><br>
     <input type="submit" value="search">
 </form>
 
-<% @players.each do |x| %>
-    <%= "#{x.last_name}, #{x.first_name}" %> <br>
-    <% end %>
 
+
+ 
  

@@ -4,10 +4,20 @@
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Logout">
 </form>
-<br>
+
 <form action="/users/<%= session["user_id"] %>" method="get">
     <input type="submit" value="My Teams">
 </form>
+
+<form action="/user-teams" method="get">
+    <input type="submit" value="View All Teams">
+</form>
+
+<form action="/players" method="get">
+    <input type="submit" value="View Players">
+</form>
+
+
 <% end %>
 
 <%= yield %>

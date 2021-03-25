@@ -1,5 +1,10 @@
-<% @players.each do |x| %>
-    <h3><%= "#{x.first_name} #{x.last_name}," %></h3> 
-    <h4><%= "#{x.nba_team.full_name}" %> </h4><br>
+
+    <h1><%= "#{@player.first_name} #{@player.last_name}" %></h1> 
+    <h2><%= "#{@nba_team.full_name}" %> </h2>
+    <h3><ul>
+            <li><%= "City: #{@nba_team.city}" %></li>   
+            <li><%= "#{@nba_team.conference}ern Conference" %></li> 
+            <li><%= "#{@nba_team.division} Division" %></li>      
+    </ul></h3>
    
-<% end %>
+

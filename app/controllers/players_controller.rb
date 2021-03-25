@@ -7,7 +7,8 @@ class PlayersController < ApplicationController
     end
 
     get '/players/search' do 
-        @players = Player.all.select {|x| x.last_name == params["last_name"]}
+        @player = Player.find_by_id(params["player_id"])
+        @nba_team = NbaTeam.find_by_id(@player.nba_team.id)
         erb :"players/results"
     end
 
