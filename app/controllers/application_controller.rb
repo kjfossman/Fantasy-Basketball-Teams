@@ -1,6 +1,8 @@
 class ApplicationController < Sinatra::Base
   configure do 
     register Sinatra::ActiveRecordExtension
+    require 'sinatra'
+    require 'sinatra/flash'
     enable :sessions
     set :session_secret, "my_application_secret"
     set :views, "app/views"
@@ -15,6 +17,10 @@ class ApplicationController < Sinatra::Base
 
     def logged_in?
       !!current_user
+    end
+
+    def logged_out?
+      !current_user
     end
 
     def redirect_if_not_logged_in

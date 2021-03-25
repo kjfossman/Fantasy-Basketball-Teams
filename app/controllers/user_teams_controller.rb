@@ -1,6 +1,7 @@
 class UserTeamsController < ApplicationController
 
     get '/user-teams' do 
+        redirect_if_not_logged_in
         @users = User.all
         erb :"user_teams/index"
     end
@@ -20,6 +21,7 @@ class UserTeamsController < ApplicationController
 
     get '/users/:id' do 
         redirect_if_not_logged_in
+        redirect_if_not_authorized_by_user
         @user = User.find_by_id(params[:id])
         erb :"user_teams/show"
     end
@@ -41,6 +43,7 @@ class UserTeamsController < ApplicationController
 
     get '/user-teams/:id/edit' do 
         redirect_if_not_logged_in
+        redirect_if_not_authorized_by_user_team
         @user_team = UserTeam.find_by_id(params[:id])
         @players = Player.all 
         @players = @players.sort_by {|x| x.last_name}
@@ -48,7 +51,8 @@ class UserTeamsController < ApplicationController
     end
 
     patch '/user-teams/:id' do 
-        binding.pry
+        redirect_if_not_logged_in
+        redirect_if_not_authorized_by_user_team
         @user_team = UserTeam.find_by_id(params[:id])
         @user_team.update(name: params["name"])
         @user_team.players.delete_all
@@ -65,13 +69,29 @@ class UserTeamsController < ApplicationController
 
     delete '/user-teams/:id' do 
         redirect_if_not_logged_in
+        redirect_if_not_authorized_by_user_team
         @user_team = UserTeam.find_by_id(params["id"])
         @user_team.delete
         @sub = session["user_id"]
         redirect "/users/#{session["user_id"]}"
     end
 
+    private
+    def redirect_if_not_authorized_by_user
+        binding.pry
+        @user = User.find_by_id(params["id"])
+        if @user.id != session["user_id"]
+            redirect "/user-teams"
+        end
+    end
 
+    def redirect_if_not_authorized_by_user_team
+        binding.pry
+        @user_team = UserTeam.find_by_id(params["id"])
+        if @user_team.user_id != session["user_id"]
+            redirect "/user-teams"
+        end
+    end
 
 
 

@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
     get '/login' do 
-      
         redirect_if_logged_in
         erb :'sessions/new'
     end
