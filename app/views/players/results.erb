@@ -1,6 +1,13 @@
 
+    
+    <h1><%= "#{@player.first_name} #{@player.last_name}" %>
+    <% if @player.stats_link %>
+    <form action="<%=@player.stats_link%>" target="_blank">
+    <button onclick="<%=@player.stats_link%>"><%="#{@player.first_name}'s"%> Stats</button>
+    </form>
+    <% end %></h1> 
     <form action="/players/<%=@player.id%>/edit" method="get">
-    <h1><%= "#{@player.first_name} #{@player.last_name}" %></h1> 
+   
     <h2><%= "#{@nba_team.full_name}" %> </h2>
     <h3><ul>
             <li><%= "City: #{@nba_team.city}" %></li>   
@@ -10,3 +17,4 @@
     <input type="submit" value="Add Link to Stats">
     </form>
 
+  

@@ -23,6 +23,14 @@ class UserTeamsController < ApplicationController
         redirect_if_not_logged_in
         redirect_if_not_authorized_by_user
         @user = User.find_by_id(params[:id])
+        erb :"users/show"
+    end
+
+    get '/user-teams/:id' do 
+        redirect_if_not_logged_in
+        redirect_if_not_authorized_by_user_team
+        @user_team = UserTeam.find_by_id(params[:id])
+        @user = User.find_by_id("#{@user_team.user_id}")
         erb :"user_teams/show"
     end
 

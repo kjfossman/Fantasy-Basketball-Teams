@@ -1,0 +1,29 @@
+
+    <h1><%= "User: #{@user.username}" %></h1>
+    <% @user.user_teams.each do |user_team|%>
+    <h2><u><%= user_team.name %></u></h2>
+    <form action="/user-teams/<%= user_team.id %>/edit" method="get">
+    <input type="submit" value="Edit Team">
+    </form>
+    
+    <form action="/user-teams/<%= user_team.id %>" method="get">
+    <input type="submit" value="View Team">
+    </form>
+
+    <form action="/user-teams/<%= user_team.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Team">
+    </form>
+    
+    
+    <% user_team.players.each do |player| %>
+    <h3><li><a href="/players/<%=player.id%>"><%= "#{player.first_name} #{player.last_name} - #{player.nba_team.full_name}" %></a></li></h3>
+    <% end %>
+    <% end %>
+    
+
+<form action="/user-teams/new" method="GET">
+    <input type="submit" value="Create New Team">
+</form>
+
+

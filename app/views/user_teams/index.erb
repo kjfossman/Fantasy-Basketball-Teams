@@ -3,7 +3,7 @@
     <% user.user_teams.each do |user_team|%>
     <h2><u><%= user_team.name %></u></h2>
     <% user_team.players.each do |player| %>
-    <h3><li><%= "#{player.first_name} #{player.last_name} - #{player.nba_team.full_name}" %></li></h3>
+    <h3><li><a href="/players/<%=player.id%>"><%= "#{player.first_name} #{player.last_name} - #{player.nba_team.full_name}" %></a></li></h3>
     <% end %>
     <% end %>
     <% end %>

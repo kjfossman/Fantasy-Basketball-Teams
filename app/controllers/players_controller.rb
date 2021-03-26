@@ -28,7 +28,6 @@ class PlayersController < ApplicationController
 
     patch '/players/:id' do 
         redirect_if_not_logged_in
-        binding.pry
         @player = Player.find_by_id(params["id"])
         @player.update(stats_link: params["stats_link"])
         redirect to "/players/#{params["id"]}"
