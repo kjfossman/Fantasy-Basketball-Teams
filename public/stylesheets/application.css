@@ -1,0 +1,18 @@
+.failure-messages{
+    width: fit-content;
+    background-color: black;
+    margin: 5px;
+    padding: 5px;
+}
+
+.success-messages{
+    width: fit-content;
+    background-color:forestgreen;
+    margin: 5px;
+    padding: 5px;
+}
+
+.pg-bg{
+    background-color: gray;
+}
+
