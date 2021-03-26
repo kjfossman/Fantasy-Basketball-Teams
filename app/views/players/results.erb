@@ -3,7 +3,7 @@
     <h1><%= "#{@player.first_name} #{@player.last_name}" %>
     <% if @player.stats_link %>
     <form action="<%=@player.stats_link%>" target="_blank">
-    <button onclick="<%=@player.stats_link%>"><%="#{@player.first_name}'s"%> Stats</button>
+    <h5><button onclick="<%=@player.stats_link%>"><%="#{@player.first_name}'s"%> Stats</button></h5>
     </form>
     <% end %></h1> 
     <form action="/players/<%=@player.id%>/edit" method="get">

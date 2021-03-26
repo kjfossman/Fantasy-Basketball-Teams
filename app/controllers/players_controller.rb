@@ -6,12 +6,18 @@ class PlayersController < ApplicationController
         erb :"players/index"
     end
 
+    get '/players/searchbar' do
+        @players = Player.select {|x|x.last_name == params["last_name"]}
+        erb :"players/search_show"
+    end
+
     get '/players/search' do 
         @player = Player.find_by_id(params["player_id"])
         @nba_team = NbaTeam.find_by_id(@player.nba_team.id)
         redirect "/players/#{@player.id}"
-        
     end
+
+    
 
     get '/players/:id' do 
         @player = Player.find_by_id(params["id"])
