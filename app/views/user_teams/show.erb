@@ -6,22 +6,22 @@
     <h2><%= @user_team.name %></h2>
 </div>
  <% @user_team.players.each do |player| %>
-    <h3><li><a href="/players/<%=player.id%>"><%= "#{player.first_name} #{player.last_name} - #{player.nba_team.full_name}" %></a> 
+    <h3><a href="/players/<%=player.id%>"><%= "#{player.first_name} #{player.last_name} - #{player.nba_team.full_name}" %></a> 
     <% if player.stats_link %>
     <form action="<%=player.stats_link%>" target="_blank">
-    <button onclick="<%=player.stats_link%>"><%="#{player.first_name}'s"%> Stats</button>
+    <button class="btn btn-outline-primary mt-1" onclick="<%=player.stats_link%>"><%="#{player.first_name}'s"%> Stats</button>
     </form>
     <% end %></li></h3>
     <% end %>
 
 
     <form action="/user-teams/<%= @user_team.id %>/edit" method="get">
-    <input type="submit" class="btn btn-outline-secondary my-2" value="Edit Team">
+    <input type="submit" class="btn btn-secondary my-2" value="Edit Team">
     </form>
     
     <form action="/user-teams/<%= @user_team.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" class="btn btn-outline-danger my-2" value="Delete Team">
+    <input type="submit" class="btn btn-danger my-2" value="Delete Team">
     </form>
 
 
