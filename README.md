@@ -1,5 +1,5 @@
 # Fantasy-Basketball-Teams
-App to select from a pool of former and current NBA players to make your greatest team(s) of all time. 
+App to select from a pool of all former and current NBA players to make your greatest team(s) of all time. 
 
 ## Motivation
 - I wanted to give a platform for people to debate the greatest NBA players of all-time.
