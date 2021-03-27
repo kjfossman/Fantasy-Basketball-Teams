@@ -21,7 +21,7 @@ App to select from a pool of former and current NBA players to make your greates
 - All users can edit players by adding a link to their stats.
 
 ## Contributing
-- Pull requests and bug reports are welcome on  Everyone interacting with this project is expected to follow the Code of Conduct.  
+- Pull requests and bug reports are welcome on  Everyone interacting with this project is expected to follow the Code of Conduct
 
 ## API Reference
 - "https://www.balldontlie.io/#introduction"
