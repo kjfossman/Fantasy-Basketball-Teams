@@ -24,7 +24,7 @@ App to select from a pool of former and current NBA players to make your greates
 - Pull requests and bug reports are welcome on  Everyone interacting with this project is expected to follow the Code of Conduct.  
 
 ## API Reference
-- "https://www.balldontlie.io/api/v1/players"
+- "https://www.balldontlie.io/#introduction"
 
 ## License
 - MIT License kjfossman
