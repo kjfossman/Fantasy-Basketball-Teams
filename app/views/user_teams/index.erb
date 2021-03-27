@@ -1,5 +1,9 @@
 <% @users.each do |user| %>
-    <h1><%= "User: #{user.username}" %></h1>
+    <div class="badge bg-secondary fst-italic">
+    <% if user.user_teams.count > 0 %>
+    <h1><%= "#{user.username.upcase}'S TEAMS" %></h1>
+    <% end %>
+    </div>
     <% user.user_teams.each do |user_team|%>
     <h2><u><%= user_team.name %></u></h2>
     <% user_team.players.each do |player| %>

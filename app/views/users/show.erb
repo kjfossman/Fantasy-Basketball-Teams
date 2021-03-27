@@ -14,17 +14,17 @@
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete Team">
     </form>
-<div class="team_commands">
+<div class="buttons">
     <a href="/user-teams/<%= user_team.id %>" method="get">
     <button type="button" class="btn btn-primary">View Team</button>
     </a>
     <a href="/user-teams/<%= user_team.id %>/edit" method="get">
     <button type="button" class="btn btn-primary">Edit Team</button>
     </a>
-    <a href="/user-teams/<%= user_team.id %>" method="post">
+    <form action="/user-teams/<%= user_team.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button type="button" class="btn btn-primary">Delete Team</button>
-    </a>
+    <input type="submit" class="btn btn-primary" value="Delete Team">
+ 
     </div>
     
     

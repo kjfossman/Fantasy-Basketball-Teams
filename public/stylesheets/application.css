@@ -13,6 +13,11 @@
 }
 
 .pg-bg{
+    background-image: url("../images/NBA.jpeg");
     background-color: gray;
+    background-size: cover;
 }
 
+.buttons{
+    margin: 5px;
+}
