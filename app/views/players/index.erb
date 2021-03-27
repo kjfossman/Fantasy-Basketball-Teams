@@ -1,14 +1,16 @@
+<div class="badge bg-secondary mb-2">
 <h1>Players List, Search by Last Name </h1>
+</div>
 
-<form autocomplete="off" action="/players/search" method="get">
+<h3><form autocomplete="off" action="/players/search" method="get">
 <select  name = "player_id">
 <% @players.each do |player| %>
 <option value="<%= player.id %>" name="player_id"> <%= "#{player.last_name}, #{player.first_name} - #{player.nba_team.full_name}"%></option>
 <% end %>
 <option value="<%= "Choose Player"%>" name="player_id" selected>Choose Player </option>
 </select><br><br>
-    <input type="submit" value="View Player">
-</form>
+    <input type="submit" class="btn btn-outline-dark btn-lg mx-2" value="View Player">
+</form></h3>
 
 
 

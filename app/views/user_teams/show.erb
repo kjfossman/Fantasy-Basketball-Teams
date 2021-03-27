@@ -1,6 +1,10 @@
 
- <h1><%= "User: #{@user.username}" %></h1>
- <h2><u><%= @user_team.name %></u></h2>
+ <div class="badge bg-secondary fst-italic my-2">
+ <h1><%= "#{@user.username.upcase}'S TEAM" %></h1>
+ </div>
+ <div class="p-3 fs-3 bg-dark bg-gradient text-white my-3"
+    <h2><%= @user_team.name %></h2>
+</div>
  <% @user_team.players.each do |player| %>
     <h3><li><a href="/players/<%=player.id%>"><%= "#{player.first_name} #{player.last_name} - #{player.nba_team.full_name}" %></a> 
     <% if player.stats_link %>
@@ -12,12 +16,12 @@
 
 
     <form action="/user-teams/<%= @user_team.id %>/edit" method="get">
-    <input type="submit" value="Edit Team">
+    <input type="submit" class="btn btn-outline-secondary my-2" value="Edit Team">
     </form>
     
     <form action="/user-teams/<%= @user_team.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Team">
+    <input type="submit" class="btn btn-outline-danger my-2" value="Delete Team">
     </form>
 
 

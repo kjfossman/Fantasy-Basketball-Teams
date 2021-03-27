@@ -37,7 +37,9 @@ class UserTeamsController < ApplicationController
     post '/user-teams' do 
         redirect_if_not_logged_in
         @player_ids = params["user_team"]["player_ids"]
-        if @player_ids.include?("")
+        if @player_ids.include?("") || params["name"] == ""
+            binding.pry
+            flash[:failure] = "Teams must have exactly 5 players, try again!"
             redirect "/user-teams/new"
         end
         @user_team = current_user.user_teams.create(name: params["name"])

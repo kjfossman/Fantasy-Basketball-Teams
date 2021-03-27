@@ -1,13 +1,17 @@
 <% @users.each do |user| %>
-    <div class="badge bg-secondary fst-italic">
+    <div class="badge bg-secondary fst-italic mt-3">
     <% if user.user_teams.count > 0 %>
-    <h1><%= "#{user.username.upcase}'S TEAMS" %></h1>
+    <h1><%= "#{user.username.upcase}'S TEAM'S" %></h1>
     <% end %>
     </div>
     <% user.user_teams.each do |user_team|%>
-    <h2><u><%= user_team.name %></u></h2>
+        <div class="p-3 fs-3 bg-dark bg-gradient text-white mt-3"
+        <h2><%= user_team.name %></h2>
+    </div>
     <% user_team.players.each do |player| %>
-    <h3><li><a href="/players/<%=player.id%>"><%= "#{player.first_name} #{player.last_name} - #{player.nba_team.full_name}" %></a></li></h3>
+        <div class="mt-2 pr-5 fs-4"
+    <h3><a href="/players/<%=player.id%>"><%= "#{player.first_name} #{player.last_name} - #{player.nba_team.full_name}" %></a></h3>
+    </div>
     <% end %>
     <% end %>
     <% end %>

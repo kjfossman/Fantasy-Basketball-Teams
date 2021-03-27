@@ -1,41 +1,38 @@
 
-    <h1><%= "User: #{@user.username}" %></h1>
-    <% @user.user_teams.each do |user_team|%>
-    <h2><u><%= user_team.name %></u></h2>
-    <form action="/user-teams/<%= user_team.id %>/edit" method="get">
-    <input type="submit" value="Edit Team">
-    </form>
-    
-    <form action="/user-teams/<%= user_team.id %>" method="get">
-    <input type="submit" value="View Team">
-    </form>
+    <div class="badge bg-secondary fst-italic my-2">
+    <h1><%= "#{@user.username.upcase}'S TEAM'S" %></h1>
+    </div>
 
-    <form action="/user-teams/<%= user_team.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Team">
-    </form>
+    <% @user.user_teams.each do |user_team|%>
+<div class="p-3 fs-3 bg-dark bg-gradient text-white mt-3"
+    <h2><%= user_team.name %></h2>
+</div>
+   
 <div class="buttons">
     <a href="/user-teams/<%= user_team.id %>" method="get">
-    <button type="button" class="btn btn-primary">View Team</button>
+    <button type="button" class="btn btn-outline-secondary btn-sm mx-2">View Team</button>
     </a>
     <a href="/user-teams/<%= user_team.id %>/edit" method="get">
-    <button type="button" class="btn btn-primary">Edit Team</button>
+    <button type="button" class="btn btn-outline-secondary btn-sm mx-2">Edit Team</button>
     </a>
     <form action="/user-teams/<%= user_team.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" class="btn btn-primary" value="Delete Team">
+    <input type="submit" class="btn btn-outline-danger btn-sm mx-2" value="Delete Team">
  
     </div>
     
-    
+   
     <% user_team.players.each do |player| %>
-    <h3><li><a href="/players/<%=player.id%>"><%= "#{player.first_name} #{player.last_name} - #{player.nba_team.full_name}" %></a></li></h3>
+<div class="mt-2 pr-5 fs-4"
+    <h3><a href="/players/<%=player.id%>"><%= "#{player.first_name} #{player.last_name} - #{player.nba_team.full_name}" %></a></h3>
+</div>
     <% end %>
+
     <% end %>
+   
+
     
 
-<form action="/user-teams/new" method="GET">
-    <input type="submit" value="Create New Team">
-</form>
+
 
 

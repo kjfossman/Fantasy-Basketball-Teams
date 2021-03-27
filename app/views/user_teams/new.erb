@@ -1,11 +1,13 @@
+<div class="p-3 fs-2 bg-success bg-gradient text-dark mt-1 mb-1"
 <h1>Create New Team</h1>
+</div>
 <form action="/user-teams" method="post">
-<label>Team Name:</label>
+<h2><label>Team Name:</label></h2>
 <input type="text" name="name" placeholder="Team Name"><br><br><br>
 
 <h2>Add Players, Browse By Last Name</h2><br>
 
-<select  name = "user_team[player_ids][]">
+<h4><select  name = "user_team[player_ids][]">
 <% @players.each do |player| %>
 <option value="<%= player.id %>" name="user_team[player_ids][]"> <%= "#{player.last_name}, #{player.first_name} - #{player.nba_team.full_name}"%></option>
 <% end %>
@@ -38,7 +40,7 @@
 <option value="<%= player.id %>" name="user_team[player_ids][]"> <%= "#{player.last_name}, #{player.first_name} - #{player.nba_team.full_name}"%></option>
 <% end %>
 <option value="" selected>Select Your Fifth Player</option>
-</select><br><br><br>
+</select></h4><br><br><br>
    
-    <input type="submit" value="Create New Team">
+    <input type="submit" class="btn btn-outline-success btn-lg mx-2" value="Create New Team">
 </form>
