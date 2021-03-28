@@ -38,7 +38,6 @@ class UserTeamsController < ApplicationController
         redirect_if_not_logged_in
         @player_ids = params["user_team"]["player_ids"]
         if @player_ids.include?("") || params["name"] == ""
-            binding.pry
             flash[:failure] = "Teams must have exactly 5 players, try again!"
             redirect "/user-teams/new"
         end

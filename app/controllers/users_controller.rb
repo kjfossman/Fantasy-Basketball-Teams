@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-
-    get '/flash' do 
-        binding.pry
-    end
-    
+ 
     get '/signup' do 
         redirect_if_logged_in
         erb :"users/new"

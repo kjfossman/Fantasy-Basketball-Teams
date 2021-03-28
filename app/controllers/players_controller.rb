@@ -17,8 +17,6 @@ class PlayersController < ApplicationController
         redirect "/players/#{@player.id}"
     end
 
-    
-
     get '/players/:id' do 
         @player = Player.find_by_id(params["id"])
         @nba_team = NbaTeam.find_by_id(@player.nba_team.id)

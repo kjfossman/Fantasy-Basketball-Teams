@@ -25,6 +25,7 @@ class SessionsController < ApplicationController
     get '/logout' do 
         erb :"sessions/delete"
     end
+    
     delete '/logout' do 
         redirect_if_not_logged_in
         session.delete("user_id")
